@@ -149,7 +149,7 @@ public class Process {
      * @param input Input from the user.
      * @param ui    Ui that interacts with the user.
      */
-    public void deleteProject(String input, Ui ui, Storage storage, Fund fund) throws AlphaNUSException {
+    public void deleteProject(String input, Ui ui, Storage storage, Fund fund){
         try {
             BeforeAfterCommand.beforeCommand(projectManager, storage);
             String[] split = input.split("pr/", 2);

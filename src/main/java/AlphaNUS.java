@@ -9,13 +9,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * <h1>AlphaNUS</h1>
- * AlphaNUS is a program that tracks a list of tasks given by the user.
- *
- * @author Leow Yong Heng
- */
-
 public class AlphaNUS {
     private static Ui ui;
     private static TaskList tasklist;

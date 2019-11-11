@@ -159,7 +159,7 @@ The `ProjectManager` class is subclassed in the project package, which contains 
 
 A detailed explanation of the use case for the `add project` command is given below to demonstrate how each component interacts with each other.
 
-1. User executes the command `add project pr/RAG` in the CLI. This input is passed from the `Ui` to `Command` where the input will be parsed to determine the command to execute.
+1. User executes the command `add project pr/RAG am/` in the CLI. This input is passed from the `Ui` to `Command` where the input will be parsed to determine the command to execute.
 
 2. The `Command` component will process the `add project` command and execute it in the `Model` component, calling `ProjectManager` to add a new `Project` object with the user defined `PROJECT_NAME` to its HashMap of `Project` objects.
 
@@ -905,22 +905,40 @@ Expected: Payee details are updated.
 +
 Expected: Payment details are updated.
 
-=== Task Tracking
+=== Task Management
+
+==== Add a Todo Task
+
+. Adds a todo task.
+.. Test Case: `add todo d/meeting with MrLim`
+
++
+Expected: Todo task is added and confirmation message is printed.
 
 ==== Deadline
 
-==== Set task as done
+. Adds a deadline task.
+.. Test Case: `add deadline d/deadline task by/12-11-2019`
 
-==== Delete Task
-
-==== Find Task
-
-==== List Tasks
++
+Expected: Deadline task is added and confirmation message is printed.
 
 ==== Snooze Deadline
+. Snoozes a deadline task.
+.. Prerequisites: Deadline tasks exists.
+.. Test case: `snooze id/1`
+
++
+Expected: Deadline is snoozed by 1 day.
 
 ==== Postpone Deadline
 
-==== Reschedule Deadline
+. Postpones a deadline task.
+.. Prerequisites: Deadline tasks exists.
+.. Test case: `postpone id/4 n/10`
 
-==== View Schedule
++
+Expected: Deadline is postpone by 10 days.
+
+[NOTE]
+More commands can be found on the User Guide.
