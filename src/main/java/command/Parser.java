@@ -50,12 +50,12 @@ public class Parser {
                 return true;
             } else if (instr.isUndo(input)) {
                 process.commandHistory(input, ui, storage);
-                process.undo(storage, ui, fund);
+                process.undo(storage, ui);
             } else if (instr.isLoad(input)) {
                 process.backupProjects(ui, fund, storage, list, tasklist);
             } else if (instr.isRedo(input)) {
                 process.commandHistory(input, ui, storage);
-                process.redo(storage, ui, fund);
+                process.redo(storage, ui);
             } else if (instr.isViewhistory(input)) {
                 process.viewhistory(input, ui, storage);
             } else if (instr.isHistory(input)) {
@@ -65,7 +65,7 @@ public class Parser {
                 process.commandHistory(input, ui, storage);
             } else if (instr.isAddProject(input)) {
                 process.commandHistory(input, ui, storage);
-                process.addProject(input, ui, fund, storage);
+                process.addProject(input, ui, storage, fund);
             } else if (instr.isDeleteProject(input)) {
                 process.deleteProject(input, ui, storage, fund);
                 process.commandHistory(input, ui, storage);
@@ -93,8 +93,12 @@ public class Parser {
                 process.deletePayment(input, ui, storage, dict);
                 process.commandHistory(input, ui, storage);
                 //storage.save(tasklist.returnArrayList());
+            } else if (instr.isFindPayment(input)) {
+                process.findPayment(input, storage, ui);
+                process.commandHistory(input, ui, storage); 
             } else if (instr.isFindPayee(input)) {
                 process.findPayee(input, storage, ui);
+                process.commandHistory(input, ui, storage);
             } else if (instr.isFindTask(input)) {
                 process.findTask(input, tasklist, ui);
                 process.commandHistory(input, ui, storage);
